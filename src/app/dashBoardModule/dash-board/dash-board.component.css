@@ -1,0 +1,97 @@
+.searchBar
+{
+    width: 500px !important;
+    /* color: #eeeeee !important; */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.30);
+    margin-left:380px;
+    border-radius: 10px;  
+    letter-spacing: .01428571em;
+    font-family: Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    line-height: 1.25rem;
+   min-height:35px;
+    padding:7px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   font-weight: 400 !important;
+  }
+
+input {
+    border: none;
+    background-color: none;
+    outline: 0;
+    display: inline;    
+    /* width:100%; */
+    resize:none;
+  }
+
+  .btn-default {
+    font-family: Raleway-SemiBold;
+    font-size: 13px;
+    color: black;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid white;
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .btn-default:hover {
+    color:black;
+    background: white;
+    border: 2px solid white;
+  }
+
+  .item
+  {
+  min-width: 200px;
+  min-height: 100px;
+  max-height: 500px;
+  margin-top: 10px;
+  box-shadow: 0 0px 0px 1px rgba(0,0,0,0.30);
+  border-radius: 5px;
+  color:black;
+  padding: 5px;
+  }
+  .item i
+  {
+    visibility: hidden;
+  }
+  
+  .item:hover
+  {
+    box-shadow: 0 0px  10px rgba(0,0,0,0.30);
+  }
+
+  .item:hover i
+  {
+    visibility: visible;
+  }
+
+  .displayRoom
+  {
+  
+    margin-top:30px;
+    display:flex;
+    flex-flow: row wrap;
+  justify-content: space-around;
+  }
+  img{
+    border-radius: 5px;
+  }
+
+  textarea:focus
+  {
+    outline: none;
+  }
+
+  textarea
+  {
+    border:none;
+    width:100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 60px;
+  }

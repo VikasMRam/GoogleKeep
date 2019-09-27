@@ -1,0 +1,72 @@
+<app-nav-bar (searchElement)=search($event)></app-nav-bar>
+
+<br>
+
+
+<div *ngIf="!searchMode">
+    <div class="searchBar " name="div">
+        <input [hidden]="!takeANotesFlag" class="mr-sm-2" type="search" placeholder="     Take a note..."
+            aria-label="Search" style="width:180px !important;" (click)="this.takeANotesFlag = false">
+        <i style="margin-left:250px;" [hidden]="!takeANotesFlag" class="fa fa-file-image-o" title="Add Image"
+            (click)="file.click()"></i>
+        <i class="fa fa-list" style="margin-left:15px;" [hidden]="!takeANotesFlag" title="AddList"
+            (click)="listView=true;" (click)=" this.takeANotesFlag = false"></i>
+
+        <input type="file" accept="image/*" #file [hidden]="true" (change)="addImage(file.files)">
+
+
+
+
+        <!-- after expanding-->
+        <div [hidden]="takeANotesFlag">
+            <input type="text" style="font-weight:600;" placeholder="Title" [(ngModel)]="title">
+            <br>
+            <textarea placeholder="Take A Notes" [(ngModel)]="note" *ngIf="!listView"></textarea>
+            <br>
+
+            <!--- list view-->
+            <div *ngIf="listView">
+                <div *ngFor="let listItem of listItems; let i=index">
+                    <!-- {{listItem}} -->
+                    <input type="checkbox" [checked]="listCheckBoxes[i]" (change)="changeListItem(i,'checkbox',$event)">
+                    <input type="text" style="margin-left:50px;" [value]="listItems[i]" placeholder="Enter Item"
+                        (change)="changeListItem(i,'list',$event)">
+                </div>
+                <input readonly type="text" placeholder=" + List Item" (click)=addToList()>
+            </div>
+
+            <i style="margin-left:15px;" class="fa fa-file-image-o" title="Add Image" (click)="file.click()"></i>
+            <button class="btn-default" style="margin-left:400px;" (click)="takeANotes()">Close</button>
+        </div>
+    </div>
+
+</div>
+<div>
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-10">
+        <div class="displayRoom">
+            <div *ngFor="let item of items; let j=index">
+                <div class="item" [hidden]="!(itemsToBeShown.indexOf(j)>=0)">
+                    <div>
+                        <i class="fa fa-times" aria-hidden="true" style="margin-left:95%;" (click)="deleteItem(j)"></i>
+                        <img [src]="item.src" height="200" *ngIf="item.src">
+                    </div>
+                    <h6 *ngIf="item.title">{{item.title}}</h6>
+                    <img src="" *ngIf="item.img">
+                    <textarea *ngIf="item.note">{{item.note}}</textarea>
+                    <div *ngIf="item.list.length>0">
+                        <div *ngFor="let listItem of item.list; let i=index">
+                            <!-- {{listItem}} -->
+                            <input type="checkbox" [checked]="item.listCheckBoxes[i]">
+                            <input type="text" style="margin-left:50px;" [value]="item.list[i]"
+                                placeholder="Enter Item">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+    </div>
+</div>

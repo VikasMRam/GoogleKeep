@@ -1,0 +1,12 @@
+<div class="bg-color">
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <img style="margin-left:50px;" src="../../../assets/images/keep.png">
+    <div style=" font-size:  25px !important; margin-left:10px;"><u>keep</u></div>
+
+
+      <input class="form-control mr-sm-2 searchBar" type="search" placeholder="Search" aria-label="Search"
+        [(ngModel)]="searchKey" (change)="searchEvent()" style="border:none;">
+      <i class="fa fa-times" aria-hidden="true" *ngIf="close" (click)="closeBtn()"></i>
+    
+  </nav>
+</div>
